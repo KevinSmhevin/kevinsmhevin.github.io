@@ -377,14 +377,18 @@ a {
   color: $blockquote-text-color;
 }
 
+.type-wrapper {
+  display: grid;
+  place-items: center;
+}
+
 .project-tagline {
-  width: 22ch;
+  width: 17ch;
   animation: typing 2s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
+  font-size: 1em;
 }
 
 @keyframes typing {
