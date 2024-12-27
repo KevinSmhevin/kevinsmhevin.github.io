@@ -16,14 +16,13 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <img style="border-radius: 5px;" src="../assets/images/kevinp.png" alt="profile-pic">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
         <a class="btn" href="{{ site.github.owner_url }}">Github profile</a>
         <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/">Linkedin profile</a>
         <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank">Email me</a>
-        <a class="btn" href="Kevin-Paras-Resume.pdf" download>My Resume</a>
+        <a class="btn" href="../Kevin Paras Resume.pdf" download>My Resume</a>
       {% endif %}
       {% if site.show_downloads %}
         <a class="btn" href="{{ site.github.owner_url }}">Github profile</a>
