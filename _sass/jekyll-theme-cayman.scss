@@ -141,23 +141,23 @@ a {
   }
 }
 
-.project-tagline {
-  margin-bottom: 2rem;
-  font-weight: normal;
-  opacity: 0.7;
+// .project-tagline {
+//   margin-bottom: 2rem;
+//   font-weight: normal;
+//   opacity: 0.7;
 
-  @include large {
-    font-size: 1.25rem;
-  }
+//   @include large {
+//     font-size: 1.25rem;
+//   }
 
-  @include medium {
-    font-size: 1.15rem;
-  }
+//   @include medium {
+//     font-size: 1.15rem;
+//   }
 
-  @include small {
-    font-size: 1rem;
-  }
-}
+//   @include small {
+//     font-size: 1rem;
+//   }
+// }
 
 .main-content {
   word-wrap: break-word;
@@ -388,6 +388,22 @@ a {
   animation: 
     typing 3.5s steps(30, end),
     blink-caret .5s step-end infinite;
+
+  margin-bottom: 2rem;
+  font-weight: normal;
+  opacity: 0.7;
+
+  @include large {
+    font-size: 1.25rem;
+  }
+
+  @include medium {
+    font-size: 1.15rem;
+  }
+
+  @include small {
+    font-size: 1rem;
+  }
 }
 
 /* The typing effect */
