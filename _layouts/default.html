@@ -6,6 +6,7 @@
 {% seo %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <script src="https://kit.fontawesome.com/d49411e451.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -22,17 +23,17 @@
         <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       </div>
       {% if site.github.is_project_page %}
-        <a class="btn" href="{{ site.github.owner_url }}">Github profile</a>
-        <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/">Linkedin profile</a>
-        <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank">Email me</a>
-        <a class="btn" href="../Kevin-Paras-Resume.pdf" download>My Resume</a>
+        <a class="btn" href="{{ site.github.owner_url }}"><i class="fa-brands fa-github"></i></a>
+        <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a class="btn" href="../Kevin-Paras-Resume.pdf" download><i class="fa-regular fa-file"></i></a>
 
       {% endif %}
       {% if site.show_downloads %}
-        <a class="btn" href="{{ site.github.owner_url }}">Github profile</a>
-        <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/">Linkedin profile</a>
-        <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank">Email me</a>
-        <a class="btn" href="../Kevin-Paras-Resume.pdf" download>My Resume</a>
+        <a class="btn" href="{{ site.github.owner_url }}"><i class="fa-brands fa-github"></i></a>
+        <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/"><i class="fa-brands fa-linkedin"></i></a>
+        <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a class="btn" href="../Kevin-Paras-Resume.pdf" download><i class="fa-regular fa-file"></i></a>
       {% endif %}
     </header>
 
