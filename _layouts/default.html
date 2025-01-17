@@ -17,24 +17,27 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <img style="border-radius: 50px;" src="../assets/images/kevinp_profile_pic.jpg" alt="profile-pic">
+      <img style="border-radius: 50px;" src="../assets/images/kevinp_banff.png" alt="profile-pic">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <div class="type-wrapper">
         <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       </div>
       {% if site.github.is_project_page %}
-        <a class="btn" href="{{ site.github.owner_url }}"><img style="border-radius: 50px;" src="../assets/images/github_icon.png" alt="github"></a>
-        <a class="btn" href="https://www.linkedin.com/in/kevin-paras-1b7696104/"><img style="border-radius: 50px;" src="../assets/images/linkedin_icon.png" alt="linkedin"></a>
-        <a class="btn" href="mailto:kevincparas@gmail.com" target="_blank"><img style="border-radius: 50px;" src="../assets/images/email_icon.png" alt="email"></a>
-        <a class="btn" href="../Kevin-Paras-Resume.pdf" download><img style="border-radius: 50px;" src="../assets/images/resume_icon.png" alt="resume"></a>
-
       {% endif %}
       {% if site.show_downloads %}
         <div class="link-container">
-          <a class="icon-item" href="{{ site.github.owner_url }}"><img style="border-radius: 50px;" src="../assets/images/github_icon.png" alt="github"></a>
-          <a class="icon-item" href="https://www.linkedin.com/in/kevin-paras-1b7696104/"><img style="border-radius: 50px;" src="../assets/images/linkedin_icon.png" alt="linkedin"></a>
-          <a class="icon-item" href="mailto:kevincparas@gmail.com" target="_blank"><img style="border-radius: 50px;" src="../assets/images/email_icon.png" alt="email"></a>
-          <a class="icon-item" href="../Kevin-Paras-Resume.pdf" download><img style="border-radius: 50px;" src="../assets/images/resume_icon.png" alt="resume"></a>
+          <a class="icon-item" href="{{ site.github.owner_url }}">
+            <img src="../assets/images/github_icon.png" alt="github">
+          </a>
+          <a class="icon-item" href="https://www.linkedin.com/in/kevin-paras-1b7696104/">
+            <img src="../assets/images/linkedin_icon.png" alt="linkedin">
+          </a>
+          <a class="icon-item" href="mailto:kevincparas@gmail.com" target="_blank">
+            <img src="../assets/images/email_icon.png" alt="email">
+          </a>
+          <a class="icon-item" href="../Kevin-Paras-Resume.pdf" download>
+            <img src="../assets/images/resume_icon.png" alt="resume">
+          </a>
         </div>
         
       {% endif %}
