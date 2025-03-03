@@ -7,10 +7,9 @@ layout: default
 
 ***
 
-I'm Kevin, a software developer with 3+ years experience in managing highly scalable backend systems. 
+I'm Kevin, a software developer with 3+ years experience in managing highly scalable applications. 
 
-I previously worked at [Tesla](https://www.tesla.com/) as part of the digital products team. There I worked on process automation software to support the battery, energy and charging products.
-
+I previously worked at [Tesla](https://www.tesla.com/) as part of the digital products team. There I worked on tools and infrastructure to support the battery, energy and charging products.
 
 
 ## Projects
