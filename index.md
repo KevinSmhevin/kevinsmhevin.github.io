@@ -39,7 +39,7 @@ I built the app using **Django** as the backend frameworks, **PostgresSQL** for 
 ### - [Quizzical](https://kevinparas.me/quizzical/)
 
 <a href="https://kevinparas.me/quizzical/">
-  <img src="./assets/images/quiz.png" alt="Chef Quackly logo" width="100" height="100">
+  <img src="./assets/images/quiz.png" alt="Quizzical logo" width="100" height="100">
 </a>
 
 [Quizzical](https://kevinparas.me/quizzical/) is a simple **React** trivia quiz app where you can test your trivia knowledge skills!
