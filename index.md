@@ -32,7 +32,7 @@ I built the app using **Django** as the backend frameworks, **PostgresSQL** for 
   <img src="./assets/images/rubber-duck.png" alt="Chef Quackly logo" width="100" height="100">
 </a>
 
-[Chef Quackly](https://chef-quackly.onrender.com/) is a chef **React** + AI reciple app integrating LLMs that helps you find recipes based on provided ingredients.
+[Chef Quackly](https://chef-quackly.onrender.com/) is a chef **React** + AI recipe app integrating LLMs that helps you find recipes based on provided ingredients.
 
 ***
 
