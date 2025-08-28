@@ -10,14 +10,31 @@
   flex-shrink: 0;
 }
 
-.profile-pic {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
+// .profile-pic {
+//   height: 100%;
+//   width: 100%;
+//   object-fit: cover;
+// }
 
 .page-header {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.profile-pic {
+  width: 120px;
+  max-width: 40vw;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 600px) {
+  .profile-pic {
+    width: 80px;
+    max-width: 60vw;
+  }
 }
