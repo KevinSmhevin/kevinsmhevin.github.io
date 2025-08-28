@@ -4,7 +4,7 @@
 @import 'jekyll-theme-cayman';
 
 .img-container {
-  width: 120px;
+  width: 250px;
   max-width: 40vw;
   height: auto;
   overflow: hidden;
@@ -33,7 +33,7 @@
 
 @media (max-width: 600px) {
   .img-container {
-    width: 80px;
+    width: 100px;
     max-width: 60vw;
     height: auto;
   }
