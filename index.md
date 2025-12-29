@@ -19,10 +19,22 @@ I previously worked at [Tesla](https://www.tesla.com/) as part of the digital pr
 
 ### - [Pokebin](https://pokebin.app/)
 
-[![Pokebin logo](https://i.imgur.com/XkR0x8d.png)](https://pokebin.app/)
+<a href="https://pokebin.app/">
+  <img src="./assets/images/pokebin_logo.svg" alt="Pokebin logo" width="100" height="100">
+</a>
 
-[Pokebin](https://pokebin.app/) is an ecommerce app I built to sell various collectibles like pokemon cards.
-I built the app using **Django** as the backend frameworks, **PostgresSQL** for the database and **S3** for object storage.
+[Pokebin](https://pokebin.app/) is an ecommerce app I built for selling trading card and collectibles with a **React** frontend using **Vite**, **Tailwind** CSS,
+and **Axios** and a **Python Django REST** backend, backed by a **Postgres** database and **AWS** infrastructure.
+
+***
+
+### - [ShortURL](https://www.shorter-url.pro/)
+
+<a href="https://www.shorter-url.pro/">
+  <img src="./assets/images/shorturl_logo.svg" alt="ShortURL logo" width="100" height="100">
+</a>
+
+[ShortURL](https://www.shorter-url.pro/) is a full-stack URL shortening service with analytics I built. It features URL shortening, click tracking, and engagement metrics. Built with **FastAPI** (Python) backend and **React** frontend using **Vite**, **Tailwind CSS**, and **Axios**, with **SQLAlchemy** for database operations and **PostgreSQL** support.
 
 ***
 
