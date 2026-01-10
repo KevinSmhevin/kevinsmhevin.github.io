@@ -70,7 +70,10 @@
     transform: none;
     height: auto;
     min-height: 100vh;
-    background-attachment: fixed;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
   }
 }
 
