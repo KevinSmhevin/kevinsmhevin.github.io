@@ -47,6 +47,16 @@ function App() {
     }
 
     const handleWheel = (e) => {
+      // Allow horizontal scrolling in projects section and description boxes
+      const target = e.target;
+      const isProjectsContainer = target.closest && target.closest('.projects-scroll-container');
+      const isProjectDescription = target.closest && target.closest('.project-card-description');
+      
+      // If scrolling horizontally or inside projects/description, allow default behavior
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || isProjectsContainer || isProjectDescription) {
+        return; // Allow default scrolling behavior
+      }
+
       e.preventDefault();
       if (isTransitioning) return;
 
@@ -132,7 +142,7 @@ function App() {
       <div className="app">
         <Navbar activeSection={activeSection} onNavClick={handleNavClick} />
         <main className="main-content">
-          <Hero />
+          <Hero onNavClick={handleNavClick} />
           <About />
           <Skills />
           <Projects />

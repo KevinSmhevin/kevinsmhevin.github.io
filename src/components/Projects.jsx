@@ -56,9 +56,20 @@ const Projects = () => {
 
   const handleScrollClick = () => {
     if (scrollContainerRef.current) {
-      const scrollAmount = scrollContainerRef.current.clientWidth * 0.8 // Scroll 80% of container width
+      const container = scrollContainerRef.current
+      const isDesktopOrTablet = window.innerWidth >= 900
+      
+      let scrollAmount
+      if (isDesktopOrTablet) {
+        // Desktop/Tablet: scroll by 3 projects (100% of container width)
+        scrollAmount = container.clientWidth
+      } else {
+        // Mobile: scroll by 1 project (80% of container)
+        scrollAmount = container.clientWidth * 0.8
+      }
+      
       const scrollDirection = isAtEnd ? -scrollAmount : scrollAmount
-      scrollContainerRef.current.scrollBy({
+      container.scrollBy({
         left: scrollDirection,
         behavior: 'smooth'
       })

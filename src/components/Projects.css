@@ -99,7 +99,7 @@
 
 .projects .section-container {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -116,12 +116,22 @@
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
-  padding-bottom: 1rem;
+  padding: 0.5rem 0 1rem 0;
   scrollbar-width: thin;
   scrollbar-color: var(--text-accent) var(--bg-secondary);
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
   width: 100%;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.projects-scroll-container:active {
+  cursor: grabbing;
+}
+
+.projects-scroll-container:hover {
+  scrollbar-color: var(--primary-color) var(--bg-secondary);
 }
 
 .projects-scroll-container::-webkit-scrollbar {
@@ -152,15 +162,17 @@
 .projects-grid > * {
   flex: 0 0 280px;
   width: 280px;
-  height: 450px;
+  height: 405px;
   scroll-snap-align: start;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   .projects-grid > * {
-    flex: 0 0 calc((1200px - 4.5rem) / 4);
-    width: calc((1200px - 4.5rem) / 4);
-    height: 450px;
+    flex: 0 0 calc((100% - 3rem) / 3);
+    width: calc((100% - 3rem) / 3);
+    min-width: 280px;
+    max-width: 367.5px;
+    height: 405px;
   }
 }
 
@@ -215,11 +227,11 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 600px) and (max-width: 899px) {
   .projects-grid > * {
     flex: 0 0 calc((100% - 1.5rem) / 2);
     width: calc((100% - 1.5rem) / 2);
-    height: 450px;
+    height: 405px;
   }
 }
 
@@ -233,7 +245,7 @@
     max-width: calc(100vw - 4rem);
     min-width: 280px;
     height: auto;
-    min-height: 450px;
+    min-height: 405px;
   }
 
   .projects-scroll-indicator {

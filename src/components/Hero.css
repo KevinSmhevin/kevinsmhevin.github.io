@@ -133,7 +133,7 @@
 
 .hero-image {
   width: 100%;
-  max-width: 250px;
+  max-width: 275px;
   height: auto;
   border-radius: 10px;
   border: 2px solid var(--text-accent);
