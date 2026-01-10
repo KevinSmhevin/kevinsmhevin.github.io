@@ -9,6 +9,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -28,9 +32,16 @@ jobs:
       - name: Add .nojekyll file
         run: touch ./dist/.nojekyll
 
+      - name: Copy CNAME file
+        run: |
+          if [ -f public/CNAME ]; then
+            cp public/CNAME ./dist/CNAME
+          fi
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: kevinparas.me
+          force_orphan: false
