@@ -1,0 +1,14 @@
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.main-content {
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+}

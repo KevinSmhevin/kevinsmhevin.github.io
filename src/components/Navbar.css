@@ -1,0 +1,137 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+[data-theme='dark'] .navbar {
+  background-color: rgba(10, 25, 47, 0.95);
+}
+
+[data-theme='light'] .navbar {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-accent);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Courier New', monospace;
+}
+
+.navbar-logo:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-item {
+  list-style: none;
+}
+
+.navbar-link {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+  display: block;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-accent);
+  transition: var(--transition);
+}
+
+.navbar-link:hover,
+.navbar-link--active {
+  color: var(--text-accent);
+}
+
+.navbar-link:hover::after,
+.navbar-link--active::after {
+  width: 100%;
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.navbar-toggle-line {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text-accent);
+  transition: var(--transition);
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem 1.5rem;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .navbar-menu--open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-link {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+}
