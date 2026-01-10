@@ -70,10 +70,9 @@
     transform: none;
     height: auto;
     min-height: 100vh;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
+    background-image: none !important;
+    background-color: var(--bg-primary);
+    animation: none !important;
   }
 }
 

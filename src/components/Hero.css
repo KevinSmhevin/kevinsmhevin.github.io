@@ -70,11 +70,13 @@
     height: auto;
     min-height: 100vh;
     background-size: cover !important;
-    background-position: center !important;
+    background-position: center center !important;
     background-repeat: no-repeat !important;
-    background-attachment: fixed !important;
+    background-attachment: scroll !important;
+    animation: none !important;
+    transition: background-image 0.5s ease-in-out !important;
+    padding: 4rem 0;
   }
-}
 
 
 [data-theme='dark'] .hero {
@@ -204,12 +206,6 @@
     order: -1;
   }
 }
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;
-    padding: 4rem 0;
-  }
 
   .hero-name {
     font-size: 2.5rem;
