@@ -2,15 +2,19 @@ import { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 import './Navbar.css'
 
-const Navbar = ({ activeSection }) => {
+const Navbar = ({ activeSection, onNavClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMenuOpen(false)
+    if (onNavClick) {
+      onNavClick(sectionId)
+    } else {
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
+    setIsMenuOpen(false)
   }
 
   const navItems = [

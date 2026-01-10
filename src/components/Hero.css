@@ -1,5 +1,9 @@
 .hero {
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   padding: 2rem 0;
@@ -7,9 +11,31 @@
   background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  z-index: 1;
   animation: zoomInBackground 20s ease-in-out infinite;
-  transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+}
+
+.hero.section-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    height: auto;
+    min-height: 100vh;
+  }
 }
 
 @keyframes zoomInBackground {

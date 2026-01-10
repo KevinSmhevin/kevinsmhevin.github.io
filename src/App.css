@@ -1,14 +1,25 @@
 .app {
-  min-height: 100vh;
+  height: 100vh;
   background-color: var(--bg-primary);
+  overflow: hidden;
+  position: relative;
 }
 
 .main-content {
-  padding-top: 80px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
+  .app {
+    height: auto;
+    overflow: visible;
+  }
+
   .main-content {
+    height: auto;
+    overflow: visible;
     padding-top: 70px;
   }
 }
