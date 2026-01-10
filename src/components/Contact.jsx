@@ -97,9 +97,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="section-container">
-        <h2 className="section-title">
-          <span className="section-number">04.</span> Get In Touch
-        </h2>
+        <h2 className="section-title">Get In Touch</h2>
         <p className="section-subtitle">
           Feel free to reach out if you want to collaborate or have any questions!
         </p>

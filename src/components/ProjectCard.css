@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  max-width: 100%;
 }
 
 .project-card:hover {
@@ -17,16 +18,17 @@
 
 .project-card-image-wrapper {
   width: 100%;
-  height: 200px;
+  height: 150px;
   background-color: var(--bg-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1.5rem;
   border-bottom: 1px solid var(--border-color);
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
+  flex-shrink: 0;
 }
 
 .project-card-image-wrapper:hover {
@@ -34,8 +36,8 @@
 }
 
 .project-card-image {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   transition: var(--transition);
@@ -47,40 +49,47 @@
 }
 
 .project-card-content {
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 1rem;
+  gap: 0.75rem;
+  min-height: 0;
 }
 
 .project-card-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
 }
 
 .project-card-description {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
   flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .project-card-technologies {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .project-tech-tag {
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.6rem;
   background-color: var(--bg-primary);
   color: var(--text-accent);
   border-radius: 4px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   border: 1px solid var(--border-color);
   transition: var(--transition);
@@ -93,16 +102,17 @@
 
 .project-card-links {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--border-color);
+  flex-shrink: 0;
 }
 
 .project-link {
-  padding: 0.7rem 1.5rem;
+  padding: 0.6rem 1rem;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   transition: var(--transition);
   text-align: center;

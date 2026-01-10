@@ -14,11 +14,11 @@ const Navbar = ({ activeSection }) => {
   }
 
   const navItems = [
-    { id: 'home', label: '01.Home' },
-    { id: 'about', label: '02.About' },
-    { id: 'skills', label: '03.Skills' },
-    { id: 'projects', label: '04.Projects' },
-    { id: 'contact', label: '05.Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'contact', label: 'Contact' },
   ]
 
   return (

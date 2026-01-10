@@ -124,9 +124,7 @@ const Skills = () => {
   return (
     <section id="skills" className="skills">
       <div className="section-container">
-        <h2 className="section-title">
-          <span className="section-number">02.</span> Skills
-        </h2>
+        <h2 className="section-title">Skills</h2>
         <div className="skills-content">
           {skillCategories.map((category, index) => (
             <div key={index} className="skill-category">
