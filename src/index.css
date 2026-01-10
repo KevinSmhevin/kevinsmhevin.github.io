@@ -114,6 +114,26 @@ img {
   display: flex;
   align-items: center;
   gap: 1rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--text-accent) 0%, var(--text-accent-light) 100%);
+  border-radius: 2px;
+}
+
+.skills .section-title::after,
+.projects .section-title::after,
+.contact .section-title::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .section-number {

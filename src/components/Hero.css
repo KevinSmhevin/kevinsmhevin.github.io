@@ -4,10 +4,24 @@
   align-items: center;
   padding: 2rem 0;
   background-color: var(--bg-primary);
-  background-size: cover;
+  background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  animation: zoomInBackground 20s ease-in-out infinite;
+  transition: background-image 1s ease-in-out;
+}
+
+@keyframes zoomInBackground {
+  0% {
+    background-size: 120%;
+  }
+  50% {
+    background-size: 130%;
+  }
+  100% {
+    background-size: 120%;
+  }
 }
 
 .hero-overlay {
@@ -104,7 +118,7 @@
 
 .hero-image {
   width: 100%;
-  max-width: 500px;
+  max-width: 250px;
   height: auto;
   border-radius: 10px;
   border: 2px solid var(--text-accent);

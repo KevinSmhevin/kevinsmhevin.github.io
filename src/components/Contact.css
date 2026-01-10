@@ -2,6 +2,20 @@
   padding: 6rem 0;
   background-color: var(--bg-secondary);
   text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.contact .section-title {
+  justify-content: center;
 }
 
 .contact-content {
@@ -18,8 +32,28 @@
   gap: 1.5rem;
   background-color: var(--bg-primary);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--text-accent) 0%, var(--text-accent-light) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.contact-info:hover::before {
+  transform: scaleX(1);
 }
 
 .contact-item {
@@ -27,6 +61,14 @@
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.contact-item:hover {
+  background-color: var(--bg-secondary);
+  transform: translateX(5px);
 }
 
 .contact-label {
@@ -60,16 +102,37 @@
   gap: 1rem;
   padding: 1.5rem;
   background-color: var(--bg-primary);
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
   transition: var(--transition);
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--text-accent) 0%, var(--text-accent-light) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover::before {
+  transform: scaleX(1);
 }
 
 .social-link:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: var(--text-accent);
-  box-shadow: 0 10px 30px var(--shadow-color);
+  box-shadow: 0 16px 40px rgba(16, 185, 129, 0.25);
+  background-color: var(--bg-secondary);
 }
 
 .social-icon-svg {

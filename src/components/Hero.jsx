@@ -1,8 +1,27 @@
+import { useState, useEffect } from "react";
 import "./Hero.css";
 import TypingEffect from "./TypingEffect";
 import profileImage from "/assets/images/kevin_profile.jpeg";
+import mountainStars from "/assets/images/mountain-stars.jpg";
+import mountainAerial from "/assets/images/mountain-aerial.jpg";
 
 const Hero = () => {
+  const backgroundImages = [
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    mountainStars,
+    mountainAerial,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -15,7 +34,7 @@ const Hero = () => {
       id="home"
       className="hero"
       style={{
-        backgroundImage: `url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)`,
+        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
       }}
     >
       <div className="hero-overlay"></div>
