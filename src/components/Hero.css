@@ -27,17 +27,6 @@
   z-index: 10;
 }
 
-@media (max-width: 768px) {
-  .hero {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    height: auto;
-    min-height: 100vh;
-  }
-}
-
 @keyframes zoomInBackground {
   0% {
     background-size: 120%;
@@ -71,6 +60,19 @@
     rgba(255, 255, 255, 0.7) 100%
   );
 }
+
+@media (max-width: 768px) {
+  .hero {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    height: auto;
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+}
+
 
 [data-theme='dark'] .hero {
   background-color: var(--bg-primary);

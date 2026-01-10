@@ -1,6 +1,26 @@
+import { useState, useEffect } from 'react'
 import './Skills.css'
+import mountainStars from "/assets/images/mountain-stars.jpg";
+import mountainAerial from "/assets/images/mountain-aerial.jpg";
 
 const Skills = () => {
+  const backgroundImages = [
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    mountainStars,
+    mountainAerial,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
   const ProgrammingLanguagesIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +142,14 @@ const Skills = () => {
   ]
 
   return (
-    <section id="skills" className="skills">
+    <section 
+      id="skills" 
+      className="skills"
+      style={{
+        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
+      }}
+    >
+      <div className="section-bg-overlay"></div>
       <div className="section-container">
         <h2 className="section-title">Skills</h2>
         <div className="skills-content">

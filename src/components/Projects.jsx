@@ -1,11 +1,31 @@
 import { useRef, useState, useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 import './Projects.css'
+import mountainStars from "/assets/images/mountain-stars.jpg";
+import mountainAerial from "/assets/images/mountain-aerial.jpg";
 
 const Projects = () => {
   const scrollContainerRef = useRef(null)
   const [isAtEnd, setIsAtEnd] = useState(false)
   const [isAtStart, setIsAtStart] = useState(true)
+
+  const backgroundImages = [
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    mountainStars,
+    mountainAerial,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
@@ -102,7 +122,14 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="projects">
+    <section 
+      id="projects" 
+      className="projects"
+      style={{
+        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
+      }}
+    >
+      <div className="section-bg-overlay"></div>
       <div className="section-container">
         <h2 className="section-title">Projects</h2>
         <p className="section-subtitle">Here are some of my recent projects</p>
