@@ -64,6 +64,16 @@
   padding: 1rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 8px;
+  user-select: none;
+}
+
+.projects-scroll-indicator:hover {
+  color: var(--text-accent);
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
 }
 
 .projects-scroll-indicator-icon {
@@ -71,6 +81,11 @@
   height: 24px;
   color: var(--text-accent);
   animation: bounce-horizontal 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.projects-scroll-indicator-icon.flip-horizontal {
+  animation: bounce-horizontal-flipped 2s infinite;
 }
 
 @keyframes bounce-horizontal {
@@ -79,6 +94,15 @@
   }
   50% {
     transform: translateX(10px);
+  }
+}
+
+@keyframes bounce-horizontal-flipped {
+  0%, 100% {
+    transform: scaleX(-1) translateX(0);
+  }
+  50% {
+    transform: scaleX(-1) translateX(-10px);
   }
 }
 

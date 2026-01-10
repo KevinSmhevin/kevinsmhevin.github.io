@@ -1,7 +1,49 @@
+import { useRef, useState, useEffect } from 'react'
 import ProjectCard from './ProjectCard'
 import './Projects.css'
 
 const Projects = () => {
+  const scrollContainerRef = useRef(null)
+  const [isAtEnd, setIsAtEnd] = useState(false)
+  const [isAtStart, setIsAtStart] = useState(true)
+
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const { scrollLeft, scrollWidth, clientWidth } = container
+      // More lenient threshold to account for rounding
+      const isEnd = Math.abs(scrollLeft + clientWidth - scrollWidth) < 20
+      const isStart = scrollLeft < 20
+      setIsAtEnd(isEnd)
+      setIsAtStart(isStart)
+    }
+  }
+
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (container) {
+      checkScrollPosition()
+      container.addEventListener('scroll', checkScrollPosition)
+      // Also check on resize
+      window.addEventListener('resize', checkScrollPosition)
+      
+      return () => {
+        container.removeEventListener('scroll', checkScrollPosition)
+        window.removeEventListener('resize', checkScrollPosition)
+      }
+    }
+  }, [])
+
+  const handleScrollClick = () => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.8 // Scroll 80% of container width
+      const scrollDirection = isAtEnd ? -scrollAmount : scrollAmount
+      scrollContainerRef.current.scrollBy({
+        left: scrollDirection,
+        behavior: 'smooth'
+      })
+    }
+  }
   const projects = [
     {
       id: 1,
@@ -64,16 +106,16 @@ const Projects = () => {
       <div className="section-container">
         <h2 className="section-title">Projects</h2>
         <p className="section-subtitle">Here are some of my recent projects</p>
-        <div className="projects-scroll-container">
+        <div className="projects-scroll-container" ref={scrollContainerRef}>
           <div className="projects-grid">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </div>
         </div>
-        <div className="projects-scroll-indicator">
+        <div className="projects-scroll-indicator" onClick={handleScrollClick}>
           <svg
-            className="projects-scroll-indicator-icon"
+            className={`projects-scroll-indicator-icon ${isAtEnd ? 'flip-horizontal' : ''}`}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -87,9 +129,9 @@ const Projects = () => {
             <polyline points="9 18 15 12 9 6"></polyline>
             <polyline points="15 18 21 12 15 6"></polyline>
           </svg>
-          <span>Scroll to see more projects</span>
+          <span>{isAtEnd ? 'Scroll to see previous projects' : 'Scroll to see more projects'}</span>
           <svg
-            className="projects-scroll-indicator-icon"
+            className={`projects-scroll-indicator-icon ${isAtEnd ? 'flip-horizontal' : ''}`}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"

@@ -71,11 +71,31 @@
   color: var(--text-secondary);
   line-height: 1.5;
   flex-grow: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 120px;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-accent) transparent;
+}
+
+.project-card-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-card-description::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.project-card-description::-webkit-scrollbar-thumb {
+  background-color: var(--text-accent);
+  border-radius: 3px;
+  opacity: 0.5;
+}
+
+.project-card-description::-webkit-scrollbar-thumb:hover {
+  opacity: 0.8;
 }
 
 .project-card-technologies {
