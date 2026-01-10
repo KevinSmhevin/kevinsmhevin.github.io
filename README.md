@@ -26,27 +26,32 @@ This portfolio has been migrated from Jekyll to a modern Vite + React setup. The
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/KevinSmhevin/kevinsmhevin.github.io.git
 cd kevinsmhevin.github.io
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
 
 4. Build for production:
+
 ```bash
 npm run build
 ```
 
 5. Preview production build:
+
 ```bash
 npm run preview
 ```
@@ -76,6 +81,7 @@ npm run preview
 ## 🎨 CSS Architecture
 
 The project uses a modular CSS approach with:
+
 - **CSS Variables**: Centralized color and design tokens in `index.css`
 - **Reusable Classes**: Common utility classes (`.btn`, `.section-title`, etc.)
 - **Component-Specific Styles**: Each component has its own CSS file
@@ -87,6 +93,7 @@ The project uses a modular CSS approach with:
 This site is configured for GitHub Pages. To deploy:
 
 1. Build the project:
+
 ```bash
 npm run build
 ```
@@ -101,9 +108,10 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Kevin Paras**
+
 - Website: [kevinparas.me](https://kevinparas.me)
 - GitHub: [@KevinSmhevin](https://github.com/KevinSmhevin)
 
 ---
 
-Built with ❤️ using React and Vite
+## Built with ❤️ using React and Vite
