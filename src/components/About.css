@@ -10,6 +10,7 @@
   align-items: start;
 }
 
+
 .about-text {
   max-width: 100%;
 }
@@ -22,6 +23,12 @@
   padding: 2rem;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.about-details:hover {
+  border-color: var(--border-color);
+  box-shadow: 0 8px 24px var(--shadow-color);
 }
 
 .detail-item {
@@ -39,6 +46,17 @@
 .detail-value {
   font-size: 1rem;
   color: var(--text-primary);
+}
+
+.about .link {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about .link:hover {
+  color: var(--text-accent-light);
+  text-decoration: underline;
 }
 
 @media (max-width: 968px) {

@@ -3,7 +3,37 @@
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background-color: var(--bg-primary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 25, 47, 0.85) 0%,
+    rgba(10, 25, 47, 0.7) 100%
+  );
+  z-index: 0;
+}
+
+[data-theme='light'] .hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+}
+
+[data-theme='dark'] .hero {
+  background-color: var(--bg-primary);
 }
 
 .hero-container {
@@ -11,7 +41,10 @@
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
+
 
 .hero-content {
   display: grid;
@@ -65,21 +98,36 @@
   justify-content: center;
   align-items: center;
   animation: fadeInRight 0.8s ease;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .hero-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   height: auto;
   border-radius: 10px;
   border: 2px solid var(--text-accent);
   box-shadow: 0 20px 60px var(--shadow-color);
-  transition: var(--transition);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  animation: zoomIn 1.5s ease-out;
+  transform-origin: center center;
 }
 
 .hero-image:hover {
-  transform: translateY(-10px);
+  transform: scale(1.1);
   box-shadow: 0 30px 80px var(--shadow-color);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 [data-theme='dark'] .hero-image {
@@ -88,14 +136,6 @@
 
 [data-theme='dark'] .hero-image:hover {
   box-shadow: 0 30px 80px rgba(100, 255, 218, 0.3);
-}
-
-[data-theme='light'] .hero-image {
-  box-shadow: 0 20px 60px rgba(10, 25, 47, 0.15);
-}
-
-[data-theme='light'] .hero-image:hover {
-  box-shadow: 0 30px 80px rgba(10, 25, 47, 0.25);
 }
 
 @keyframes fadeInUp {

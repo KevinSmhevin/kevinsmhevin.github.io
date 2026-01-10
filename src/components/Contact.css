@@ -69,7 +69,7 @@
 .social-link:hover {
   transform: translateY(-5px);
   border-color: var(--text-accent);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 .social-icon-svg {

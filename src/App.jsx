@@ -15,20 +15,45 @@ function App() {
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'projects', 'contact']
       const scrollPosition = window.scrollY + 100
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
 
-      for (const section of sections) {
+      // Check if we're near the bottom of the page
+      const isNearBottom = scrollPosition + windowHeight >= documentHeight - 100
+
+      if (isNearBottom) {
+        setActiveSection('contact')
+        return
+      }
+
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i]
         const element = document.getElementById(section)
         if (element) {
           const { offsetTop, offsetHeight } = element
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const nextElement = i < sections.length - 1 
+            ? document.getElementById(sections[i + 1])
+            : null
+
+          if (nextElement) {
+            // Check if scroll position is within this section (before next section starts)
+            if (scrollPosition >= offsetTop && scrollPosition < nextElement.offsetTop) {
+              setActiveSection(section)
+              break
+            }
+          } else {
+            // Last section - check if we're past its start
+            if (scrollPosition >= offsetTop) {
+              setActiveSection(section)
+              break
+            }
           }
         }
       }
     }
 
     window.addEventListener('scroll', handleScroll)
+    handleScroll() // Call once on mount to set initial active section
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

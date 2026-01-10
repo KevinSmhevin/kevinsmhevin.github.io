@@ -14,9 +14,10 @@
 }
 
 .theme-toggle:hover {
-  background-color: var(--bg-secondary);
+  background-color: var(--green-light);
   border-color: var(--text-accent);
   transform: scale(1.1);
+  box-shadow: 0 0 12px var(--green-glow);
 }
 
 .theme-toggle svg {

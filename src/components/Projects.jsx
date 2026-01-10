@@ -48,6 +48,15 @@ const Projects = () => {
       link: 'https://kevinsmhevin.github.io/watch-games/',
       github: 'https://github.com/KevinSmhevin/watch-games',
     },
+    {
+      id: 6,
+      title: 'React Components Library',
+      description: 'A collection of reusable React components library with customizable styling and modern design patterns.',
+      technologies: ['React', 'JavaScript', 'CSS'],
+      image: '/assets/images/react-icon.svg',
+      link: null,
+      github: 'https://github.com/KevinSmhevin/react-components',
+    },
   ]
 
   return (
@@ -55,10 +64,45 @@ const Projects = () => {
       <div className="section-container">
         <h2 className="section-title">Projects</h2>
         <p className="section-subtitle">Here are some of my recent projects</p>
-        <div className="projects-grid">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="projects-scroll-container">
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
+        <div className="projects-scroll-indicator">
+          <svg
+            className="projects-scroll-indicator-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+            <polyline points="15 18 21 12 15 6"></polyline>
+          </svg>
+          <span>Scroll to see more projects</span>
+          <svg
+            className="projects-scroll-indicator-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+            <polyline points="15 18 21 12 15 6"></polyline>
+          </svg>
         </div>
       </div>
     </section>

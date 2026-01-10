@@ -3,11 +3,91 @@
   background-color: var(--bg-primary);
 }
 
+.projects-scroll-container {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-accent) var(--bg-secondary);
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+
+.projects-scroll-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb {
+  background: var(--text-accent);
+  border-radius: 4px;
+}
+
+.projects-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
   gap: 1.5rem;
   align-items: stretch;
+  width: max-content;
+}
+
+.projects-grid > * {
+  flex: 0 0 280px;
+  width: 280px;
+  height: 500px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 1200px) {
+  .projects-grid > * {
+    flex: 0 0 calc((1200px - 4.5rem) / 4);
+    width: calc((1200px - 4.5rem) / 4);
+    height: 500px;
+  }
+}
+
+.projects-scroll-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.projects-scroll-indicator-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--text-accent);
+  animation: bounce-horizontal 2s infinite;
+}
+
+@keyframes bounce-horizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .projects-grid > * {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+    width: calc((100% - 1.5rem) / 2);
+    height: 500px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -15,10 +95,20 @@
     padding: 4rem 0;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 400px;
-    margin: 0 auto;
+  .projects-grid > * {
+    flex: 0 0 calc(100vw - 4rem);
+    max-width: calc(100vw - 4rem);
+    min-width: 280px;
+    height: auto;
+    min-height: 450px;
+  }
+
+  .projects-scroll-indicator {
+    font-size: 0.8rem;
+  }
+
+  .projects-scroll-indicator-icon {
+    width: 20px;
+    height: 20px;
   }
 }
