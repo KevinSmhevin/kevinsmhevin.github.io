@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Hero.css";
 import TypingEffect from "./TypingEffect";
-import profileImage from "/assets/images/kevin_profile.jpeg";
+import profileImage from "/assets/images/kevin_profile.png";
 import mountainStars from "/assets/images/mountain-stars.jpg";
 import mountainAerial from "/assets/images/mountain-aerial.jpg";
 

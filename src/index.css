@@ -144,9 +144,11 @@ img {
 
 .section-subtitle {
   font-size: 1.2rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin-bottom: 3rem;
   text-align: center;
+  opacity: 0.95;
+  font-weight: 500;
 }
 
 .section-text {

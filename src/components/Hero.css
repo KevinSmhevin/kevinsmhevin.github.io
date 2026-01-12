@@ -70,6 +70,30 @@
   color: var(--text-accent);
   margin-bottom: 1rem;
   font-family: 'Courier New', monospace;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--text-accent);
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.hero-greeting:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+[data-theme='light'] .hero-greeting {
+  background: rgba(16, 185, 129, 0.08);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+}
+
+[data-theme='light'] .hero-greeting:hover {
+  background: rgba(16, 185, 129, 0.12);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.25);
 }
 
 .hero-name {
