@@ -5,7 +5,7 @@ import profileImage from "/assets/images/kevin_profile.jpeg";
 import mountainStars from "/assets/images/mountain-stars.jpg";
 import mountainAerial from "/assets/images/mountain-aerial.jpg";
 
-const Hero = ({ onNavClick }) => {
+const Hero = () => {
   const backgroundImages = [
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     mountainStars,
@@ -25,14 +25,9 @@ const Hero = ({ onNavClick }) => {
   }, [backgroundImages.length]);
 
   const scrollToSection = (sectionId) => {
-    if (onNavClick) {
-      onNavClick(sectionId);
-    } else {
-      // Fallback for mobile/scrollable mode
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 

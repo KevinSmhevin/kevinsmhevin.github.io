@@ -1,25 +1,26 @@
 .contact {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
   padding: 6rem 0;
   background-color: var(--bg-secondary);
-  background-size: 120%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(50px);
-  transition: background-image 1s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
-  z-index: 1;
-  box-sizing: border-box;
-  overflow-y: auto;
-  animation: zoomInBackground 20s ease-in-out infinite;
+  transition: background-image 1s ease-in-out;
+  position: relative;
+  animation: zoomBackground 20s ease-in-out infinite;
+}
+
+@keyframes zoomBackground {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 100%;
+  }
 }
 
 .section-bg-overlay {
@@ -28,61 +29,18 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(17, 34, 64, 0.85) 0%,
-    rgba(17, 34, 64, 0.7) 100%
-  );
+  background: rgba(17, 34, 64, 0.90);
   z-index: 0;
+  pointer-events: none;
 }
 
 [data-theme='light'] .section-bg-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(248, 249, 250, 0.85) 0%,
-    rgba(248, 249, 250, 0.7) 100%
-  );
-}
-
-@keyframes zoomInBackground {
-  0% {
-    background-size: 120%;
-  }
-  50% {
-    background-size: 130%;
-  }
-  100% {
-    background-size: 120%;
-  }
-}
-
-.contact.section-active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 10;
+  background: rgba(248, 249, 250, 0.90);
 }
 
 @media (max-width: 768px) {
   .contact {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    height: auto;
-    min-height: 100vh;
-    background-image: none !important;
-    background-color: var(--bg-secondary);
-    animation: none !important;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+    background-attachment: scroll;
   }
 }
 

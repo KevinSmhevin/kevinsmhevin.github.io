@@ -58,8 +58,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow: hidden;
-  height: 100%;
 }
 
 body {
@@ -70,21 +68,8 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow: hidden;
-  height: 100vh;
+  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  html {
-    overflow: auto;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    overflow: auto;
-    height: auto;
-  }
 }
 
 code {

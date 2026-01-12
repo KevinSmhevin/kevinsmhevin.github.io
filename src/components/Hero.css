@@ -1,41 +1,27 @@
 .hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 2rem 0;
   background-color: var(--bg-primary);
-  background-size: 120%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
-  z-index: 1;
-  animation: zoomInBackground 20s ease-in-out infinite;
-  transition: background-image 1s ease-in-out, opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  background-attachment: fixed;
+  transition: background-image 1s ease-in-out;
+  position: relative;
+  animation: zoomBackground 20s ease-in-out infinite;
 }
 
-.hero.section-active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 10;
-}
-
-@keyframes zoomInBackground {
+@keyframes zoomBackground {
   0% {
-    background-size: 120%;
+    background-size: 100%;
   }
   50% {
-    background-size: 130%;
+    background-size: 110%;
   }
   100% {
-    background-size: 120%;
+    background-size: 100%;
   }
 }
 
@@ -45,20 +31,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 25, 47, 0.85) 0%,
-    rgba(10, 25, 47, 0.7) 100%
-  );
+  background: rgba(10, 25, 47, 0.88);
   z-index: 0;
+  pointer-events: none;
 }
 
 [data-theme='light'] .hero-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.85) 0%,
-    rgba(255, 255, 255, 0.7) 100%
-  );
+  background: rgba(255, 255, 255, 0.88);
 }
 
 [data-theme='dark'] .hero {
@@ -191,18 +170,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    position: relative;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    height: auto;
-    min-height: 100vh;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-    background-attachment: scroll !important;
-    animation: none !important;
-    transition: background-image 0.5s ease-in-out !important;
+    background-attachment: scroll;
     padding: 4rem 0;
   }
 
