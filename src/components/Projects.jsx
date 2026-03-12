@@ -1,13 +1,13 @@
-import { useRef, useState, useEffect } from 'react'
-import ProjectCard from './ProjectCard'
-import './Projects.css'
+import { useRef, useState, useEffect } from "react";
+import ProjectCard from "./ProjectCard";
+import "./Projects.css";
 import mountainStars from "/assets/images/mountain-stars.jpg";
 import mountainAerial from "/assets/images/mountain-aerial.jpg";
 
 const Projects = () => {
-  const scrollContainerRef = useRef(null)
-  const [isAtEnd, setIsAtEnd] = useState(false)
-  const [isAtStart, setIsAtStart] = useState(true)
+  const scrollContainerRef = useRef(null);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+  const [isAtStart, setIsAtStart] = useState(true);
 
   const backgroundImages = [
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -20,7 +20,7 @@ const Projects = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % backgroundImages.length
+        (prevIndex) => (prevIndex + 1) % backgroundImages.length,
       );
     }, 5000);
 
@@ -29,112 +29,132 @@ const Projects = () => {
 
   const checkScrollPosition = () => {
     if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current
-      const { scrollLeft, scrollWidth, clientWidth } = container
+      const container = scrollContainerRef.current;
+      const { scrollLeft, scrollWidth, clientWidth } = container;
       // More lenient threshold to account for rounding
-      const isEnd = Math.abs(scrollLeft + clientWidth - scrollWidth) < 20
-      const isStart = scrollLeft < 20
-      setIsAtEnd(isEnd)
-      setIsAtStart(isStart)
+      const isEnd = Math.abs(scrollLeft + clientWidth - scrollWidth) < 20;
+      const isStart = scrollLeft < 20;
+      setIsAtEnd(isEnd);
+      setIsAtStart(isStart);
     }
-  }
+  };
 
   useEffect(() => {
-    const container = scrollContainerRef.current
+    const container = scrollContainerRef.current;
     if (container) {
-      checkScrollPosition()
-      container.addEventListener('scroll', checkScrollPosition)
+      checkScrollPosition();
+      container.addEventListener("scroll", checkScrollPosition);
       // Also check on resize
-      window.addEventListener('resize', checkScrollPosition)
-      
+      window.addEventListener("resize", checkScrollPosition);
+
       return () => {
-        container.removeEventListener('scroll', checkScrollPosition)
-        window.removeEventListener('resize', checkScrollPosition)
-      }
+        container.removeEventListener("scroll", checkScrollPosition);
+        window.removeEventListener("resize", checkScrollPosition);
+      };
     }
-  }, [])
+  }, []);
 
   const handleScrollClick = () => {
     if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current
-      const isDesktopOrTablet = window.innerWidth >= 900
-      
-      let scrollAmount
+      const container = scrollContainerRef.current;
+      const isDesktopOrTablet = window.innerWidth >= 900;
+
+      let scrollAmount;
       if (isDesktopOrTablet) {
         // Desktop/Tablet: scroll by 3 projects (100% of container width)
-        scrollAmount = container.clientWidth
+        scrollAmount = container.clientWidth;
       } else {
         // Mobile: scroll by 1 project (80% of container)
-        scrollAmount = container.clientWidth * 0.8
+        scrollAmount = container.clientWidth * 0.8;
       }
-      
-      const scrollDirection = isAtEnd ? -scrollAmount : scrollAmount
+
+      const scrollDirection = isAtEnd ? -scrollAmount : scrollAmount;
       container.scrollBy({
         left: scrollDirection,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     }
-  }
+  };
   const projects = [
     {
       id: 1,
-      title: 'Pokebin',
-      description: 'Pokebin is an ecommerce app I built for selling trading card and collectibles with a React frontend using Vite, Tailwind CSS, and Axios and a Python Django REST backend, backed by a Postgres database and AWS infrastructure.',
-      technologies: ['React', 'Vite', 'Tailwind CSS', 'Django', 'PostgreSQL', 'AWS'],
-      image: '/assets/images/pokebin_logo.svg',
-      link: 'https://pokebin.app/',
-      github: 'https://github.com/KevinSmhevin/ecommerce',
+      title: "Pokebin",
+      description:
+        "Pokebin is an ecommerce app I built for selling trading card and collectibles with a React frontend using Vite, Tailwind CSS, and Axios and a Python Django REST backend, backed by a Postgres database and AWS infrastructure.",
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Django",
+        "PostgreSQL",
+        "AWS",
+      ],
+      image: "/assets/images/pokebin_logo.svg",
+      link: "https://pokebin.app/",
+      github: "https://github.com/KevinSmhevin/ecommerce",
     },
     {
       id: 2,
-      title: 'ShortURL',
-      description: 'ShortURL is a full-stack URL shortening service with analytics I built. It features URL shortening, click tracking, and engagement metrics. Built with FastAPI (Python) backend and React frontend using Vite, Tailwind CSS, and Axios, with SQLAlchemy for database operations and PostgreSQL support.',
-      technologies: ['React', 'FastAPI', 'Python', 'PostgreSQL', 'SQLAlchemy', 'Tailwind CSS'],
-      image: '/assets/images/shorturl_logo.svg',
-      link: 'https://www.shorter-url.pro/',
-      github: 'https://github.com/KevinSmhevin/shorter-url',
+      title: "ShortURL",
+      description:
+        "ShortURL is a full-stack URL shortening service with analytics I built. It features URL shortening, click tracking, and engagement metrics. Built with FastAPI (Python) backend and React frontend using Vite, Tailwind CSS, and Axios, with SQLAlchemy for database operations and PostgreSQL support.",
+      technologies: [
+        "React",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "SQLAlchemy",
+        "Tailwind CSS",
+      ],
+      image: "/assets/images/shorturl_logo.svg",
+      link: "https://www.shorter-url.pro/",
+      github: "https://github.com/KevinSmhevin/shorter-url",
     },
     {
       id: 3,
-      title: 'Chef Quackly',
-      description: 'Chef Quackly is a chef React + AI recipe app integrating LLMs that helps you find recipes based on provided ingredients.',
-      technologies: ['React', 'AI/LLM', 'JavaScript'],
-      image: '/assets/images/rubber-duck.png',
-      link: 'https://chef-quackly.onrender.com/',
-      github: 'https://github.com/KevinSmhevin/chef-quackly',
+      title: "Chef Quackly",
+      description:
+        "Chef Quackly is a chef React + AI recipe app integrating LLMs that helps you find recipes based on provided ingredients.",
+      technologies: ["React", "AI/LLM", "JavaScript"],
+      image: "/assets/images/rubber-duck.png",
+      link: "https://kevinparas.me/chef-quackly/",
+      github: "https://github.com/KevinSmhevin/chef-quackly",
     },
     {
       id: 4,
-      title: 'Quizzical',
-      description: 'Quizzical is a simple React trivia quiz app where you can test your trivia knowledge skills!',
-      technologies: ['React', 'JavaScript', 'API'],
-      image: '/assets/images/quiz.png',
-      link: 'https://kevinparas.me/quizzical/',
-      github: 'https://github.com/KevinSmhevin/quizzical',
+      title: "Quizzical",
+      description:
+        "Quizzical is a simple React trivia quiz app where you can test your trivia knowledge skills!",
+      technologies: ["React", "JavaScript", "API"],
+      image: "/assets/images/quiz.png",
+      link: "https://kevinparas.me/quizzical/",
+      github: "https://github.com/KevinSmhevin/quizzical",
     },
     {
       id: 5,
-      title: 'Watch-games',
-      description: 'Watch-games is a simple twitch api app to find random streamers by video game.',
-      technologies: ['React', 'Twitch API', 'JavaScript'],
-      image: 'https://i.imgur.com/RFlYkt9.png',
-      link: 'https://kevinsmhevin.github.io/watch-games/',
-      github: 'https://github.com/KevinSmhevin/watch-games',
+      title: "Watch-games",
+      description:
+        "Watch-games is a simple twitch api app to find random streamers by video game.",
+      technologies: ["React", "Twitch API", "JavaScript"],
+      image: "https://i.imgur.com/RFlYkt9.png",
+      link: "https://kevinsmhevin.github.io/watch-games/",
+      github: "https://github.com/KevinSmhevin/watch-games",
     },
     {
       id: 6,
-      title: 'React Components Library',
-      description: 'A collection of reusable React components library with customizable styling and modern design patterns.',
-      technologies: ['React', 'JavaScript', 'CSS'],
-      image: '/assets/images/react-icon.svg',
+      title: "React Components Library",
+      description:
+        "A collection of reusable React components library with customizable styling and modern design patterns.",
+      technologies: ["React", "JavaScript", "CSS"],
+      image: "/assets/images/react-icon.svg",
       link: null,
-      github: 'https://github.com/KevinSmhevin/react-components',
+      github: "https://github.com/KevinSmhevin/react-components",
     },
-  ]
+  ];
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="projects"
       style={{
         backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
@@ -153,7 +173,7 @@ const Projects = () => {
         </div>
         <div className="projects-scroll-indicator" onClick={handleScrollClick}>
           <svg
-            className={`projects-scroll-indicator-icon ${isAtEnd ? 'flip-horizontal' : ''}`}
+            className={`projects-scroll-indicator-icon ${isAtEnd ? "flip-horizontal" : ""}`}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -167,9 +187,13 @@ const Projects = () => {
             <polyline points="9 18 15 12 9 6"></polyline>
             <polyline points="15 18 21 12 15 6"></polyline>
           </svg>
-          <span>{isAtEnd ? 'Scroll to see previous projects' : 'Scroll to see more projects'}</span>
+          <span>
+            {isAtEnd
+              ? "Scroll to see previous projects"
+              : "Scroll to see more projects"}
+          </span>
           <svg
-            className={`projects-scroll-indicator-icon ${isAtEnd ? 'flip-horizontal' : ''}`}
+            className={`projects-scroll-indicator-icon ${isAtEnd ? "flip-horizontal" : ""}`}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -186,7 +210,7 @@ const Projects = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;
