@@ -99,7 +99,7 @@ const Contact = () => {
     {
       name: "LinkedIn",
       icon: <LinkedInIcon />,
-      url: "https://www.linkedin.com/in/kevin-paras-1b7696104/",
+      url: "https://www.linkedin.com/in/kevin-paras/",
     },
     {
       name: "Email",
