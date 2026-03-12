@@ -109,7 +109,7 @@ const Contact = () => {
     {
       name: "Resume",
       icon: <ResumeIcon />,
-      url: "/Kevin-Paras-Resume.pdf",
+      url: "/Kevin Paras - Resume.pdf",
       download: true,
     },
   ];
