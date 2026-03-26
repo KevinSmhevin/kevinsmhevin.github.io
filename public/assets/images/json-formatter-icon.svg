@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="JSON formatter icon: document card">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f1f7f3"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#23322b" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#2f855a"/>
+  <rect x="72" y="96" width="368" height="320" rx="40" fill="url(#cardBg)" filter="url(#shadow)"/>
+  <!-- Folded corner -->
+  <path fill="#d8e4dd" d="M376 96h68v68z"/>
+  <path fill="none" stroke="#2f855a" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"
+        d="M140 200h96M252 200h120M140 248h72M228 248h144M140 296h88M244 296h128"/>
+  <text x="256" y="360" text-anchor="middle" font-family="ui-monospace,Consolas,monospace" font-size="72" font-weight="700" fill="#2f855a">{ }</text>
+</svg>

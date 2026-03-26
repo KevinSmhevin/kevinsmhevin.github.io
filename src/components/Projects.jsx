@@ -112,6 +112,37 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: "Poke Profile",
+      description:
+        "A retro-style Pokémon profile quiz built with React and TypeScript. Users complete a guided survey and receive a deterministic Pokémon profile, team lineup, and interactive reveal flow powered by the PokeAPI.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "PokeAPI",
+        "CSS",
+      ],
+      image: "/assets/images/poke-profile-icon.svg",
+      link: "https://kevinparas.me/poke-profile/",
+      github: "https://github.com/KevinSmhevin/poke-profile",
+    },
+    {
+      id: 4,
+      title: "JSON Formatter",
+      description:
+        "A responsive JSON formatter that validates input, pretty-prints output, supports key sorting, and includes an interactive expand/collapse tree with compact mode and clipboard copy for quick sharing.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Vite",
+        "CSS",
+      ],
+      image: "/assets/images/json-formatter-icon.svg",
+      link: "https://kevinparas.me/json-formatter/",
+      github: "https://github.com/KevinSmhevin/json-formatter",
+    },
+    {
+      id: 5,
       title: "Chef Quackly",
       description:
         "Chef Quackly is a chef React + AI recipe app integrating LLMs that helps you find recipes based on provided ingredients.",
@@ -121,7 +152,7 @@ const Projects = () => {
       github: "https://github.com/KevinSmhevin/chef-quackly",
     },
     {
-      id: 4,
+      id: 6,
       title: "Quizzical",
       description:
         "Quizzical is a simple React trivia quiz app where you can test your trivia knowledge skills!",
@@ -131,7 +162,7 @@ const Projects = () => {
       github: "https://github.com/KevinSmhevin/quizzical",
     },
     {
-      id: 5,
+      id: 7,
       title: "Watch-games",
       description:
         "Watch-games is a simple twitch api app to find random streamers by video game.",
@@ -141,7 +172,7 @@ const Projects = () => {
       github: "https://github.com/KevinSmhevin/watch-games",
     },
     {
-      id: 6,
+      id: 8,
       title: "React Components Library",
       description:
         "A collection of reusable React components library with customizable styling and modern design patterns.",

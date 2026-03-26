@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Poke Profile icon option A">
+  <defs>
+    <linearGradient id="a-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2128"/>
+      <stop offset="100%" stop-color="#101418"/>
+    </linearGradient>
+    <clipPath id="a-top">
+      <rect x="8" y="8" width="48" height="28"/>
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#a-bg)" stroke="#2b3640" stroke-width="2"/>
+  <circle cx="32" cy="32" r="20" fill="#f5f7fa"/>
+  <circle cx="32" cy="32" r="20" fill="#ff6363" clip-path="url(#a-top)"/>
+  <rect x="11" y="30" width="42" height="4" rx="1" fill="#2b3640"/>
+  <circle cx="32" cy="32" r="6" fill="#f5f7fa" stroke="#2b3640" stroke-width="2"/>
+  <circle cx="32" cy="32" r="2.5" fill="#4da3ff"/>
+</svg>
