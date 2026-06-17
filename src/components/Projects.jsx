@@ -1,6 +1,6 @@
-import { useRef, useState, useEffect } from "react";
-import { ChevronRight } from "lucide-react";
-import ProjectCard from "./ProjectCard";
+import { useState } from "react";
+import ProjectTile from "./ProjectTile";
+import ProjectDialog from "./ProjectDialog";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { cn } from "@/lib/utils";
@@ -89,89 +89,65 @@ const projects = [
   },
 ];
 
+// Bento spans on a 6-col grid → rows of 2, 3, 3. Top row (0,1) is featured.
+const bentoSpans = [
+  "lg:col-span-3",
+  "lg:col-span-3",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+  "lg:col-span-2",
+];
+
 const Projects = () => {
-  const scrollRef = useRef(null);
-  const [isAtEnd, setIsAtEnd] = useState(false);
+  const [selected, setSelected] = useState(null);
   const backgroundImage = useRotatingBackground();
-
-  const checkScrollPosition = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setIsAtEnd(Math.abs(el.scrollLeft + el.clientWidth - el.scrollWidth) < 20);
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    checkScrollPosition();
-    el.addEventListener("scroll", checkScrollPosition);
-    window.addEventListener("resize", checkScrollPosition);
-    return () => {
-      el.removeEventListener("scroll", checkScrollPosition);
-      window.removeEventListener("resize", checkScrollPosition);
-    };
-  }, []);
-
-  const handleScrollClick = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const amount =
-      window.innerWidth >= 900 ? el.clientWidth : el.clientWidth * 0.8;
-    el.scrollBy({ left: isAtEnd ? -amount : amount, behavior: "smooth" });
-  };
 
   return (
     <section
       id="projects"
-      className="section-backdrop relative py-24 text-center md:py-28"
+      className="section-backdrop relative flex h-[100svh] min-h-[640px] flex-col text-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="absolute inset-0 bg-background/82" />
 
-      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-[1600px] flex-col gap-4 px-6 md:px-8">
-        <Reveal>
+      <div className="relative z-10 mx-auto flex h-full w-full min-w-0 max-w-6xl flex-col px-6 pb-8 pt-20 md:px-8 md:pt-24">
+        <Reveal className="shrink-0">
           <SectionHeading
             eyebrow="03 — Work"
             title="Projects"
-            subtitle="Here are some of my recent projects"
+            subtitle="A selection of recent work — tap any project for the full story"
             align="center"
           />
         </Reveal>
 
-        <div
-          ref={scrollRef}
-          className="flex w-full min-w-0 max-w-full snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-5 pt-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-2"
-        >
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="h-[405px] shrink-0 basis-[calc(100vw-4rem)] snap-start sm:basis-[calc((100%-1.5rem)/2)] lg:max-w-[367px] lg:basis-[calc((100%-3rem)/3)]"
-            >
-              <ProjectCard project={project} />
-            </div>
-          ))}
+        <div className="scrollbar-slim min-h-0 flex-1 overflow-y-auto overflow-x-hidden px-1 pb-1">
+          <div className="grid grid-cols-1 gap-4 sm:auto-rows-[200px] sm:grid-cols-2 lg:grid-cols-6">
+            {projects.map((project, index) => (
+              <Reveal
+                key={project.id}
+                delay={(index % 3) * 80}
+                className={cn("min-h-[180px] sm:min-h-0", bentoSpans[index])}
+              >
+                <ProjectTile
+                  project={project}
+                  featured={index === 0 || index === 1}
+                  onSelect={setSelected}
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
-
-        <button
-          type="button"
-          onClick={handleScrollClick}
-          className="group mx-auto flex items-center gap-2 rounded-full px-5 py-2.5 font-mono text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
-        >
-          <ChevronRight
-            className={cn(
-              "size-5 text-primary transition-transform",
-              isAtEnd ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1",
-            )}
-          />
-          {isAtEnd ? "Scroll to see previous projects" : "Scroll to see more projects"}
-          <ChevronRight
-            className={cn(
-              "size-5 text-primary transition-transform",
-              isAtEnd ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1",
-            )}
-          />
-        </button>
       </div>
+
+      <ProjectDialog
+        project={selected}
+        onOpenChange={(open) => {
+          if (!open) setSelected(null);
+        }}
+      />
     </section>
   );
 };
