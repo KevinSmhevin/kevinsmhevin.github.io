@@ -1,76 +1,65 @@
-import { useState, useEffect } from "react";
-import "./Hero.css";
 import TypingEffect from "./TypingEffect";
+import Reveal from "./Reveal";
+import { Button } from "@/components/ui/button";
+import { useRotatingBackground } from "@/hooks/useRotatingBackground";
 import profileImage from "/assets/images/kevin_profile.png";
-import mountainStars from "/assets/images/mountain-stars.jpg";
-import mountainAerial from "/assets/images/mountain-aerial.jpg";
+
+const scrollToSection = (sectionId) => {
+  document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+};
 
 const Hero = () => {
-  const backgroundImages = [
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    mountainStars,
-    mountainAerial,
-  ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex(
-        (prevIndex) => (prevIndex + 1) % backgroundImages.length
-      );
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [backgroundImages.length]);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const backgroundImage = useRotatingBackground();
 
   return (
     <section
       id="home"
-      className="hero"
-      style={{
-        backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
-      }}
+      className="section-backdrop relative flex min-h-screen items-center py-16"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="hero-overlay"></div>
-      <div className="hero-container">
-        <div className="hero-content">
-          <div className="hero-text">
-            <p className="hero-greeting">Hello! I'M</p>
-            <h1 className="hero-name">Kevin Paras</h1>
-            <h2 className="hero-title">
+      <div className="absolute inset-0 bg-gradient-to-br from-background/92 via-background/82 to-background/70" />
+
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 md:px-8">
+        <div className="grid items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
+          <Reveal className="text-center md:text-left">
+            <p className="mb-5 inline-block rounded-full border border-primary/40 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-primary backdrop-blur-sm">
+              Hello! I'm
+            </p>
+            <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Kevin Paras
+            </h1>
+            <h2 className="mt-2 font-serif text-2xl font-normal italic text-primary sm:text-3xl lg:text-4xl">
               <TypingEffect text="Software Engineer" speed={100} />
             </h2>
-            <p className="hero-description">
-              I'm a software developer with 4+ years experience in managing
-              highly scalable applications. I previously worked at Tesla as part
-              of the digital products team.
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:mx-0">
+              I'm a software developer with 4+ years experience building and
+              scaling production applications. I previously worked at Tesla on
+              the digital products team.
             </p>
-            <div className="hero-buttons">
-              <button
-                className="btn btn--primary"
-                onClick={() => scrollToSection("projects")}
-              >
+            <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
+              <Button size="lg" onClick={() => scrollToSection("projects")}>
                 View My Work
-              </button>
-              <button
-                className="btn btn--secondary"
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
                 onClick={() => scrollToSection("contact")}
               >
                 Get In Touch
-              </button>
+              </Button>
             </div>
-          </div>
-          <div className="hero-image-wrapper">
-            <img src={profileImage} alt="Kevin Paras" className="hero-image" />
-          </div>
+          </Reveal>
+
+          <Reveal delay={150} className="flex justify-center">
+            <div className="relative">
+              <div className="float absolute -inset-6 rounded-full bg-primary/25 blur-3xl" />
+              <img
+                src={profileImage}
+                alt="Kevin Paras"
+                className="float relative z-10 w-full max-w-[290px] rounded-2xl border border-primary/30 shadow-2xl"
+              />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

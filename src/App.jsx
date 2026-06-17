@@ -1,53 +1,62 @@
 import { useState, useEffect } from "react";
 import { ThemeProvider } from "./context/ThemeContext";
-import Navbar from "./components/Navbar";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+import AppSidebar from "./components/AppSidebar";
+import Logo from "./components/Logo";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import "./App.css";
+
+const SECTIONS = ["home", "about", "skills", "projects", "contact"];
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
+      const scrollPosition = window.scrollY + 120;
+      for (const section of SECTIONS) {
         const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(section);
-            break;
-          }
+        if (!element) continue;
+        const { offsetTop, offsetHeight } = element;
+        if (
+          scrollPosition >= offsetTop &&
+          scrollPosition < offsetTop + offsetHeight
+        ) {
+          setActiveSection(section);
+          break;
         }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Call once on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <ThemeProvider>
-      <div className="app">
-        <Navbar activeSection={activeSection} />
-        <main className="main-content">
+      <SidebarProvider>
+        <AppSidebar activeSection={activeSection} />
+        <SidebarInset className="min-w-0 overflow-x-clip">
+          <header className="sticky top-0 z-30 flex h-12 items-center gap-2 border-b border-border/60 bg-background/70 px-4 backdrop-blur-xl md:hidden">
+            <SidebarTrigger />
+            <Logo className="size-7" />
+            <span className="font-mono text-sm font-semibold">Kevin Paras</span>
+          </header>
           <Hero />
           <About />
           <Skills />
           <Projects />
           <Contact />
-        </main>
-      </div>
+        </SidebarInset>
+      </SidebarProvider>
     </ThemeProvider>
   );
 }

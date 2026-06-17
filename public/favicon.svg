@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kevin Paras">
+  <defs>
+    <linearGradient id="kp-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a8a" />
+      <stop offset="1" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#kp-bg)" />
+  <polyline points="18,24 25,32 18,40" fill="none" stroke="#93c5fd" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="39" y="39" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="19" font-weight="700" fill="#ffffff" letter-spacing="0.5">KP</text>
+</svg>
