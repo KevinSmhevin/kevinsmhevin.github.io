@@ -1,9 +1,56 @@
+import { useEffect, useState } from "react";
 import { Code2, Database, Layers, Wrench } from "lucide-react";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useRotatingBackground } from "@/hooks/useRotatingBackground";
+
+const focusSplit = [
+  { label: "Backend", percent: 70, fillClass: "bg-gradient-to-r from-primary to-chart-2" },
+  { label: "Frontend", percent: 30, fillClass: "bg-primary/30" },
+];
+
+const FocusBar = () => {
+  const [filled, setFilled] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setFilled(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  return (
+    <div className="glass relative overflow-hidden rounded-xl px-6 py-5 sm:px-8">
+      <div className="flex flex-col gap-1.5 sm:flex-row sm:items-baseline sm:justify-between">
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          Full-stack focus
+        </span>
+        <div className="flex flex-wrap gap-x-5 gap-y-1">
+          {focusSplit.map((part) => (
+            <span
+              key={part.label}
+              className="flex items-center gap-2 font-mono text-xs text-muted-foreground"
+            >
+              <span className={`size-2.5 rounded-full ${part.fillClass}`} />
+              {part.label}
+              <span className="font-semibold text-foreground">{part.percent}%</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-4 flex h-3 w-full gap-1 overflow-hidden rounded-full bg-primary/10">
+        {focusSplit.map((part) => (
+          <div
+            key={part.label}
+            className={`h-full rounded-full transition-[width] duration-1000 ease-out ${part.fillClass}`}
+            style={{ width: filled ? `${part.percent}%` : "0%" }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const skillCategories = [
   {
@@ -46,6 +93,10 @@ const Skills = () => {
             title="Skills"
             align="center"
           />
+        </Reveal>
+
+        <Reveal delay={80} className="mb-8 block">
+          <FocusBar />
         </Reveal>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
