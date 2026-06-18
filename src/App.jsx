@@ -6,6 +6,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import AppSidebar from "./components/AppSidebar";
+import GridOverlay from "./components/GridOverlay";
 import Logo from "./components/Logo";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -43,6 +44,7 @@ function App() {
   return (
     <ThemeProvider>
       <SidebarProvider>
+        <GridOverlay />
         <AppSidebar activeSection={activeSection} />
         <SidebarInset className="min-w-0 overflow-x-clip">
           <header className="sticky top-0 z-30 flex h-12 items-center gap-2 border-b border-border/60 bg-background/70 px-4 backdrop-blur-xl md:hidden">

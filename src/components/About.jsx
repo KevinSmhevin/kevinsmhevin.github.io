@@ -48,8 +48,8 @@ const About = () => {
           <SectionHeading eyebrow="01 — Background" title="About Me" />
         </Reveal>
 
-        <div className="grid items-start gap-10 md:grid-cols-[2fr_1fr]">
-          <Reveal as="div" className="glass rounded-xl p-8">
+        <div className="grid items-stretch gap-10 md:grid-cols-[2fr_1fr]">
+          <Reveal as="div" className="glass h-full rounded-xl p-8">
             <div className="space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
                 I'm Kevin, a software developer with 4+ years experience
@@ -77,8 +77,8 @@ const About = () => {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <Card className="glass glass-hover relative w-full gap-0 divide-y divide-border/60 overflow-hidden py-2">
+          <Reveal delay={120} className="h-full">
+            <Card className="glass glass-hover relative h-full w-full justify-center gap-0 divide-y divide-border/60 overflow-hidden py-2">
               {details.map((item) => (
                 <div
                   key={item.label}

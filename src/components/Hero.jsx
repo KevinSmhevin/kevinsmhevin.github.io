@@ -1,3 +1,4 @@
+import { ArrowRight, Mail } from "lucide-react";
 import TypingEffect from "./TypingEffect";
 import Reveal from "./Reveal";
 import { Button } from "@/components/ui/button";
@@ -37,26 +38,33 @@ const Hero = () => {
               the digital products team.
             </p>
             <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row md:justify-start">
-              <Button size="lg" onClick={() => scrollToSection("projects")}>
+              <Button
+                size="lg"
+                className="group"
+                onClick={() => scrollToSection("projects")}
+              >
                 View My Work
+                <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
+                className="group"
                 onClick={() => scrollToSection("contact")}
               >
                 Get In Touch
+                <Mail className="transition-transform duration-300 group-hover:-translate-y-0.5" />
               </Button>
             </div>
           </Reveal>
 
           <Reveal delay={150} className="flex justify-center">
             <div className="relative">
-              <div className="float absolute -inset-6 rounded-full bg-primary/25 blur-3xl" />
+              <div className="absolute -inset-6 rounded-full bg-primary/25 blur-3xl" />
               <img
                 src={profileImage}
                 alt="Kevin Paras"
-                className="float relative z-10 w-full max-w-[290px] rounded-2xl border border-primary/30 shadow-2xl"
+                className="relative z-10 w-full max-w-[290px] rounded-2xl border border-primary/30 shadow-2xl"
               />
             </div>
           </Reveal>

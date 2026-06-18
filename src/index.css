@@ -232,6 +232,106 @@
     transform: scaleX(1);
   }
 
+  /* Subtle blue grid laid over the whole page, above the photo backdrops */
+  .grid-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--primary) 3.5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--primary) 3.5%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 28px 28px;
+  }
+
+  .dark .grid-overlay {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--primary) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--primary) 5%, transparent) 1px,
+        transparent 1px
+      );
+  }
+
+  /* A patch of the grid whose lines slowly brighten and fade. Shares the base
+     grid's 28px size + origin so its lines sit exactly on the real ones. */
+  .grid-twinkle {
+    position: absolute;
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--primary) 22%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--primary) 22%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 28px 28px;
+    opacity: 0;
+    animation: grid-twinkle 8s var(--ease-out) infinite;
+  }
+
+  .dark .grid-twinkle {
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--primary) 28%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--primary) 28%, transparent) 1px,
+        transparent 1px
+      );
+  }
+
+  /* Moving diagonal stripes for the skills focus bar's backend segment */
+  .progress-stripes::after,
+  .progress-stripes-reverse::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-size: 22.63px 22.63px;
+  }
+
+  .progress-stripes::after {
+    background-image: repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, #fff 22%, transparent) 0,
+      color-mix(in srgb, #fff 22%, transparent) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+    animation: progress-stripes-move 0.9s linear infinite;
+  }
+
+  /* Frontend segment: opposite angle, reversed drift, cooler tint */
+  .progress-stripes-reverse::after {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      color-mix(in srgb, var(--chart-3) 55%, transparent) 0,
+      color-mix(in srgb, var(--chart-3) 55%, transparent) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+    animation: progress-stripes-move 1.2s linear infinite reverse;
+  }
+
   /* Scroll-reveal: hidden until the Reveal component marks it visible */
   .reveal {
     opacity: 0;
@@ -262,6 +362,16 @@
   .float {
     animation: none;
   }
+
+  .progress-stripes::after,
+  .progress-stripes-reverse::after {
+    animation: none;
+  }
+
+  .grid-twinkle {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -277,6 +387,25 @@
   }
   50% {
     background-size: 110%;
+  }
+}
+
+@keyframes grid-twinkle {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes progress-stripes-move {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 22.63px 0;
   }
 }
 

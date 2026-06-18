@@ -7,8 +7,18 @@ import { Badge } from "@/components/ui/badge";
 import { useRotatingBackground } from "@/hooks/useRotatingBackground";
 
 const focusSplit = [
-  { label: "Backend", percent: 70, fillClass: "bg-gradient-to-r from-primary to-chart-2" },
-  { label: "Frontend", percent: 30, fillClass: "bg-primary/30" },
+  {
+    label: "Backend",
+    percent: 70,
+    fillClass: "bg-gradient-to-r from-primary to-chart-2",
+    stripeClass: "progress-stripes",
+  },
+  {
+    label: "Frontend",
+    percent: 30,
+    fillClass: "bg-chart-3/45",
+    stripeClass: "progress-stripes-reverse",
+  },
 ];
 
 const FocusBar = () => {
@@ -23,7 +33,7 @@ const FocusBar = () => {
     <div className="glass relative overflow-hidden rounded-xl px-6 py-5 sm:px-8">
       <div className="flex flex-col gap-1.5 sm:flex-row sm:items-baseline sm:justify-between">
         <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-          Full-stack focus
+          Fullstack — Backend Leaning
         </span>
         <div className="flex flex-wrap gap-x-5 gap-y-1">
           {focusSplit.map((part) => (
@@ -43,7 +53,7 @@ const FocusBar = () => {
         {focusSplit.map((part) => (
           <div
             key={part.label}
-            className={`h-full rounded-full transition-[width] duration-1000 ease-out ${part.fillClass}`}
+            className={`relative h-full overflow-hidden rounded-full transition-[width] duration-1000 ease-out ${part.fillClass} ${part.stripeClass}`}
             style={{ width: filled ? `${part.percent}%` : "0%" }}
           />
         ))}
